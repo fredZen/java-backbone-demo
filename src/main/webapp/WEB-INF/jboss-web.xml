@@ -1,0 +1,3 @@
+<jboss-web>
+  <context-root>/backbone-demo</context-root>
+</jboss-web>

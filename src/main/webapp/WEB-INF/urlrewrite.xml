@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "urlrewrite4.0.dtd">
+
+<urlrewrite default-match-type="wildcard">
+	<rule>
+		<from>/</from>
+		<to type="redirect">app/</to>
+	</rule>
+	<rule>
+		<from>/app/**</from>
+		<to>/WEB-INF/jsp/backboneDemo.jsp</to>
+	</rule>
+</urlrewrite>
+
