@@ -3,6 +3,7 @@
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set value="${pageContext.request.contextPath}/js" var="js" />
         <c:set value="${pageContext.request.contextPath}/resource" var="resource" />
+        <c:set value="${pageContext.request.contextPath}/app" var="app" />
     </head>
     <body>
         <script>
@@ -11,6 +12,9 @@
                 config: {
                     'util/resource': {
                         baseUrl: '${resource}'
+                    },
+                    'router': {
+                        baseUrl: '${app}'
                     }
                 }
             };
