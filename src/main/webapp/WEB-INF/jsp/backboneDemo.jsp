@@ -16,6 +16,12 @@
         <meta name="description" content="">
         <meta name="author" content="Frederic Merizen">
 
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+
         <link type="text/css" href="${css}/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="${css}/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -31,14 +37,19 @@
         <![endif]-->
     </head>
     <body>
+        <!-- Menu bar will go here -->
         <div id="mainMenu">
         </div>
-        <div id="container">
+
+        <!-- Main application view -->
+        <div class="container" id="main">
         </div>
+
         <!-- Use require.js to configure the application -->
         <script>
             var require = {
                 baseUrl: '${js}',
+                deps: ['bootstrap'],
                 config: {
                     'util/resource': {
                         baseUrl: '${resource}'

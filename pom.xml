@@ -11,6 +11,10 @@
     <name>BackboneDemo</name>
     <description>Backbone.js sample for Paris JUG</description>
 
+    <prerequisites>
+        <maven>3.0.4</maven>
+    </prerequisites>
+
     <properties>
         <spring.version>3.2.0.RELEASE</spring.version>
         <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
@@ -26,6 +30,81 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/jasmine/template</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/template</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.2.0.0</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <phase>test</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <specRunnerTemplate>REQUIRE_JS</specRunnerTemplate>
+                    <customRunnerTemplate>src/test/resources/RequireJs2SpecRunner.htmltemplate</customRunnerTemplate>
+                    <jsSrcDir>${project.basedir}/src/main/webapp/js</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/js</jsTestSrcDir>
+                    <scriptLoaderPath>lib/require/require-2.1.2-min.js</scriptLoaderPath>
+                    <browserVersion>INTERNET_EXPLORER_7</browserVersion>
+                    <preloadSources>
+                        <source>bootstrap</source>
+                    </preloadSources>
+                    <specIncludes>
+                        <include>**/*Spec.js</include>
+                    </specIncludes>
+                    <junitXmlReportFileName>
+                        ../surefire-reports/TEST-jasmine.xml
+                    </junitXmlReportFileName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.timurstrekalov</groupId>
+                <artifactId>saga-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>coverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>${project.build.directory}/jasmine</baseDir>
+                    <includes>SpecRunner.html</includes>
+                    <outputDir>${project.build.directory}/coverage</outputDir>
+                    <noInstrumentPatterns>
+                        <pattern>.*/lib/.*</pattern>
+                        <pattern>.*/testlib/.*</pattern>
+                        <pattern>.*/spec/.*</pattern>
+                    </noInstrumentPatterns>
                 </configuration>
             </plugin>
         </plugins>

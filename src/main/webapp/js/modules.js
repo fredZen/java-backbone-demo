@@ -3,7 +3,7 @@ require.paths = {
     jquery: 'lib/jquery/jquery-1.8.3-min',
     underscore: 'lib/lodash/lodash-1.0.0.rc3-min',
     backbone: 'lib/backbone/backbone-0.9.9-min',
-    bootstrap: 'lib/bootstrap/bootstrap.min',
+    bootstrap: 'lib/bootstrap/bootstrap-2.2.2-min',
     json2: 'lib/json2/json2',
 
     // Require.js plugins

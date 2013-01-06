@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=$sourceEncoding$">
+	<title>Jasmine Spec Runner</title>
+	$cssDependencies$
+	$javascriptDependencies$
+	<script type="text/javascript">
+		var require = {
+			baseUrl: '$sourceDir$'
+			$if(priority)$
+			, deps: $priority$
+			$endif$
+			$if(customRunnerConfiguration)$
+			, $customRunnerConfiguration$
+			$endif$
+			, config: {
+                /*
+                If you need to inject some global configuration, this is the place.
+                It's also a smell that things are not as unit-testable as they could be.
+                */
+			}
+		};
+	</script>
+	<script type="text/javascript" src="$sourceDir$/modules.js"></script>
+	<script type="text/javascript" src="$sourceDir$/testlib/jasmine-jquery-1.3.1.js"></script>
+	<script type="text/javascript" src="$requirejsPath$"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		if(window.location.href.indexOf("ManualSpecRunner.html") !== -1) {
+			document.body.appendChild(document.createTextNode("Warning: opening this HTML file directly from the file system is deprecated. You should instead try running `mvn jasmine:bdd` from the command line, and then visit `http://localhost:8234` in your browser. "))
+		}
+
+		var specs = $specs$;
+
+
+		require(specs, function() {
+		    window.reporter = new jasmine.$reporter$(); jasmine.getEnv().addReporter(reporter);
+			jasmine.getEnv().execute();
+		});
+	</script>
+</body>
+</html>
