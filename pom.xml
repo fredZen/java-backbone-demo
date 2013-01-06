@@ -15,6 +15,7 @@
         <spring.version>3.2.0.RELEASE</spring.version>
         <urlrewritefilter.version>4.0.4</urlrewritefilter.version>
         <jstl.version>1.2</jstl.version>
+        <jackson.version>2.1.2</jackson.version>
     </properties>
 
     <build>
@@ -44,7 +45,14 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- JSP and JSTL SUPPORT -->
+        <!-- JSON (DE)SERIALIZATION -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- JSTL SUPPORT -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
