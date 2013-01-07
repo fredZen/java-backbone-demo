@@ -1,4 +1,4 @@
-define(    ['view/greetingView', 'model/greetingModel'],
+define(     ['view/greetingView', 'model/greetingModel'],
     function(      GreetingView ,        GreetingModel ) {
     describe('GreetingView', function(){
         describe('setModel', function(){

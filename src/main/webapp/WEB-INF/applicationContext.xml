@@ -1,10 +1,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <context:component-scan base-package="com.octo.parisjug.backbonedemo.service" />
 
+    <!-- AccommodationService and configuration data -->
+    <bean class="com.octo.parisjug.backbonedemo.service.AccommodationService">
+        <constructor-arg  name="accommodationsByResortCode">
+            <map>
+                <entry key="TUI" value-ref="accommodations-tunisie"/>
+                <entry key="ALP" value-ref="accommodations-alpes"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <util:list id="accommodations-tunisie">
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Standard room" c:price="100" c:roomType="STD"/>
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Deluxe room" c:price="150" c:roomType="DLX"/>
+    </util:list>
+
+    <util:list id="accommodations-alpes">
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Standard room" c:price="75" c:roomType="STD"/>
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Deluxe room" c:price="300" c:roomType="DLX"/>
+    </util:list>
 </beans>
