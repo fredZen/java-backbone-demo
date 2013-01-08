@@ -10,6 +10,7 @@ define(     [ 'backbone', 'render!accommodationPill'],
 
             pillSelected: function() {
                 this.model.setActive();
+                return false;
             },
 
             initialize: function() {

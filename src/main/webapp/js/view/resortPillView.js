@@ -10,6 +10,7 @@ define(     [ 'backbone', 'render!resortPill'],
 
             pillSelected: function() {
                 this.model.setActive();
+                return false;
             },
 
             initialize: function() {

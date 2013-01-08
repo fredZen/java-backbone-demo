@@ -7,6 +7,7 @@ define(     ['backbone', 'module', 'require'],
         var baseUrl = module.config().baseUrl + "/",
             AppRouter = Backbone.Router.extend({
                     routes: {
+                        '': 'index'
                     },
 
                     init: function() {
@@ -14,6 +15,13 @@ define(     ['backbone', 'module', 'require'],
                             root : baseUrl,
                             pushState: true
                         });
+                    },
+
+                    index: function() {
+                        require(    ['driver/tripSelectorDriver'],
+                            function(         TripSelectorDriver) {
+                                TripSelectorDriver.startEmpty();
+                            });
                     }
                 }),
             singleton =  new AppRouter();

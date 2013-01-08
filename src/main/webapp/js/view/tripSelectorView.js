@@ -1,26 +1,26 @@
-define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './resortDetailsView', './accommodationSelectorView', './tripSummaryView', 'model/accommodationCollection'],
-    function(  Backbone ,  template            ,    ResortSelectorView ,    ResortDetailsView ,    AccommodationSelectorView ,    TripSummaryView ,        AccommodationCollection ) {
+define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './resortDetailsView', './accommodationSelectorView', './tripSummaryView', 'router'],
+    function(  Backbone ,  template            ,    ResortSelectorView ,    ResortDetailsView ,    AccommodationSelectorView ,    TripSummaryView ,  router ) {
         var TripSelectorView = Backbone.View.extend({
             // Instance
             initialize: function() {
                 var resortCollection = this.options.resortCollection;
-
-                this.availabeAccommodations = new AccommodationCollection();
+                this.availableAccommodations = this.options.availableAccommodations;
 
                 this.resortDetails = ResortDetailsView.show(this.model);
                 this.resortSelector = ResortSelectorView.show(resortCollection);
-                this.accomodationSelector = AccommodationSelectorView.show(this.availabeAccommodations);
+                this.accomodationSelector = AccommodationSelectorView.show(this.availableAccommodations);
                 this.tripSummary = TripSummaryView.show(this.model);
 
                 resortCollection.on('change:active', this._updateActiveResort, this);
-                this.availabeAccommodations.on('change:active', this._updateActiveAccommodation, this);
+                this.availableAccommodations.on('change:active', this._updateActiveAccommodation, this);
             },
 
             _updateActiveResort: function(activeResort, isActive) {
                 if(isActive) {
+                    router.navigate(activeResort.id);
                     this.model.setResort(activeResort);
                     this.model.setAccommodation(undefined);
-                    this.availabeAccommodations.fetchAvailableForResort(activeResort.id);
+                    this.availableAccommodations.fetchAvailableForResort(activeResort.id);
                 }
             },
 
@@ -39,8 +39,12 @@ define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './reso
             }
         }, {
             // Class
-            show: function(tripModel, resortCollection) {
-                var result = new TripSelectorView({model: tripModel, resortCollection: resortCollection});
+            show: function(tripModel, resortCollection, availableAccommodations) {
+                var result = new TripSelectorView({
+                        model: tripModel,
+                        resortCollection: resortCollection,
+                        availableAccommodations: availableAccommodations
+                    });
                 result.render();
                 return result;
             }
