@@ -1,5 +1,5 @@
-define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './resortDetailsView', './accommodationSelectorView', './tripSummaryView', 'router'],
-    function(  Backbone ,  template            ,    ResortSelectorView ,    ResortDetailsView ,    AccommodationSelectorView ,    TripSummaryView ,  router ) {
+define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './resortDetailsView', './accommodationSelectorView', './tripSummaryView', 'router/router'],
+    function(  Backbone ,  template            ,    ResortSelectorView ,    ResortDetailsView ,    AccommodationSelectorView ,    TripSummaryView ,         router ) {
         var TripSelectorView = Backbone.View.extend({
             // Instance
             initialize: function() {
@@ -17,7 +17,7 @@ define(     [ 'backbone', 'render!tripSelector', './resortSelectorView', './reso
 
             _updateActiveResort: function(activeResort, isActive) {
                 if(isActive) {
-                    router.navigate(activeResort.id);
+                    router.navigate("resort/" + activeResort.id);
                     this.model.setResort(activeResort);
                     this.model.setAccommodation(undefined);
                     this.availableAccommodations.fetchAvailableForResort(activeResort.id);

@@ -7,6 +7,7 @@ define(     ['backbone', 'module', 'require'],
         var baseUrl = module.config().baseUrl + "/",
             AppRouter = Backbone.Router.extend({
                     routes: {
+                        'resort/:resortCode': 'forResort',
                         '': 'index'
                     },
 
@@ -18,9 +19,16 @@ define(     ['backbone', 'module', 'require'],
                     },
 
                     index: function() {
-                        require(    ['driver/tripSelectorDriver'],
-                            function(         TripSelectorDriver) {
+                        require(    ['./tripSelectorDriver'],
+                            function(   TripSelectorDriver ) {
                                 TripSelectorDriver.startEmpty();
+                            });
+                    },
+
+                    forResort: function(resortCode) {
+                        require(    ['./tripSelectorDriver'],
+                            function(   TripSelectorDriver ) {
+                                TripSelectorDriver.startForResort(resortCode);
                             });
                     }
                 }),

@@ -49,7 +49,7 @@
                     'util/resource': {
                         baseUrl: '${resource}'
                     },
-                    'router': {
+                    'router/router': {
                         baseUrl: '${app}'
                     }
                 }

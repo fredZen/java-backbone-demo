@@ -1,16 +1,36 @@
 define(      ['model/resortCollection', 'model/tripModel', 'model/accommodationCollection', 'view/tripSelectorView', 'jquery'],
     function (       ResortCollection ,        TripModel ,        AccommodationCollection ,       TripSelectorView , $       ) {
-        return {
-            startEmpty: function() {
+        var
+            start = function(onResortsReady) {
                 var
                     resorts = ResortCollection.available(),
                     trip = TripModel.empty(),
                     accommodations = new AccommodationCollection(),
-                    view = TripSelectorView.show(trip, resorts, accommodations);
+                    view = TripSelectorView.show(trip, resorts, accommodations),
+                    options;
 
                 $("#main").append(view.$el);
 
-                resorts.fetch();
+                if(onResortsReady) {
+                    options = {
+                        success : function() {
+                            onResortsReady(resorts, trip);
+                        }
+                    }
+                }
+
+                resorts.fetch(options);
+            };
+
+        return {
+            startEmpty: start,
+
+                startForResort: function(resortCode) {
+                start(function(resorts, trip) {
+                    var resort = resorts.get(resortCode);
+                    resort.setActive();
+                    trip.setResort(resort);
+                });
             }
         };
     });
