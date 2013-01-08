@@ -1,22 +1,54 @@
 package com.octo.parisjug.backbonedemo.model;
 
 public class Resort {
-    public final String id;
-    public final String name;
-    public final String country;
-    public final String description;
+    private String id;
+    private String name;
+    private String country;
+    private String description;
 
     /*
      * Each resort has a color theme. In this toy example, we'll just store it as a CSS color string.
      * Probably not the best idea in real life.
      */
-    public final String color;
+    private String color;
 
-    public Resort(String id, final String name, final String country, String description, String color) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(final String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(final String country) {
         this.country = country;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(final String description) {
         this.description = description;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(final String color) {
         this.color = color;
     }
 }

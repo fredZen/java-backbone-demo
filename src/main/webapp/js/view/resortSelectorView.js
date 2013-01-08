@@ -1,6 +1,6 @@
-define(     [ 'backbone', 'render!resortSelector', './resortView'],
+define(     [ 'backbone', 'render!resortSelector', './resortPillView'],
     function(  Backbone ,  template            ,    ResortView ) {
-        var TripSelectorView = Backbone.View.extend({
+        var ResortSelectorView = Backbone.View.extend({
             // Instance
             initialize: function() {
                 this._listenToModel();
@@ -31,11 +31,11 @@ define(     [ 'backbone', 'render!resortSelector', './resortView'],
         }, {
             // Class
             show: function(resortCollection) {
-                var result = new TripSelectorView({model: resortCollection});
+                var result = new ResortSelectorView({model: resortCollection});
                 result.render();
                 return result;
             }
         });
 
-        return TripSelectorView;
+        return ResortSelectorView;
     });

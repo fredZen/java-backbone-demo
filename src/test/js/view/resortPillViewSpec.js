@@ -1,13 +1,13 @@
-define(     ['view/greetingView', 'model/greetingModel'],
-    function(      GreetingView ,        GreetingModel ) {
-    describe('GreetingView', function(){
+define(     ['view/resortPillView', 'model/resortModel'],
+    function(      ResortPillView ,        ResortModel ) {
+    describe('ResortPillView', function(){
         describe('setModel', function(){
             var
-                oldModel = new GreetingModel({message: "Something"}),
-                newModel = new GreetingModel({message: "Whatever"});
+                oldModel = new ResortModel({name: "Something"}),
+                newModel = new ResortModel({name: "Whatever"});
 
             it('sets the new model as the source to render from', function() {
-                var view = new GreetingView({model: oldModel});
+                var view = new ResortPillView({model: oldModel});
 
                 view.setModel(newModel);
                 view.render();
@@ -16,12 +16,12 @@ define(     ['view/greetingView', 'model/greetingModel'],
             });
 
             it('starts listening to the new model', function() {
-                var view = new GreetingView({model: oldModel});
+                var view = new ResortPillView({model: oldModel});
                 spyOn(view, 'render');
 
                 runs(function(){
                     view.setModel(newModel);
-                    newModel.set('message', "Hey");
+                    newModel.set('name', "Hey");
                 });
 
                 waitsFor(function(){
@@ -30,11 +30,11 @@ define(     ['view/greetingView', 'model/greetingModel'],
             });
 
             it('stops listening to the old model', function() {
-                var view = new GreetingView({model: oldModel});
+                var view = new ResortPillView({model: oldModel});
                 spyOn(view, 'render');
 
                 view.setModel(newModel);
-                oldModel.set('message', "Hey");
+                oldModel.set('name', "Hey");
 
                 expect(view.render).not.toHaveBeenCalled();
             });

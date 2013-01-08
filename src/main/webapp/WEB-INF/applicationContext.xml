@@ -2,7 +2,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
@@ -15,9 +15,9 @@
         <constructor-arg name="resorts">
             <list>
                 <bean class="com.octo.parisjug.backbonedemo.model.Resort"
-                      c:id="DJA" c:name="Djerba" c:country="Tunisie"  c:description="Plage" c:color="rgb(255, 201, 14)" />
+                      p:id="DJA" p:name="Djerba" p:country="Tunisie"  p:description="Plage" p:color="rgb(255, 201, 14)" />
                 <bean class="com.octo.parisjug.backbonedemo.model.Resort"
-                      c:id="AVZ" c:name="Avoriaz" c:country="France" c:description="Montagne" c:color="rgb(153, 217, 234)" />
+                      p:id="AVZ" p:name="Avoriaz" p:country="France" p:description="Montagne" p:color="rgb(153, 217, 234)" />
             </list>
         </constructor-arg>
     </bean>
@@ -34,15 +34,15 @@
 
     <util:list id="accommodations-djerba">
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              c:typeCode="STD" c:description="Standard room" c:price="100"/>
+              p:typeCode="STD" p:description="Standard room" p:price="100"/>
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              c:typeCode="DLX" c:description="Deluxe room" c:price="150"/>
+              p:typeCode="DLX" p:description="Deluxe room" p:price="150"/>
     </util:list>
 
     <util:list id="accommodations-avoriaz">
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              c:typeCode="STD" c:description="Standard room" c:price="75"/>
+              p:typeCode="STD" p:description="Standard room" p:price="75"/>
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              c:typeCode="DLX" c:description="Deluxe room" c:price="300"/>
+              p:typeCode="DLX" p:description="Deluxe room" p:price="300"/>
     </util:list>
 </beans>

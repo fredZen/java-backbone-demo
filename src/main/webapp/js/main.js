@@ -1,13 +1,14 @@
-require(     ['router', 'view/mainMenuView', 'model/resortCollection', 'view/resortSelectorView', 'jquery'],
-    function ( router ,       MainMenuView ,        ResortCollection ,       ResortSelectorView , $       ) {
-        var resorts, view;
+require(     ['router', 'view/mainMenuView', 'model/resortCollection', 'model/tripModel', 'view/tripSelectorView', 'jquery'],
+    function ( router ,       MainMenuView ,        ResortCollection ,        TripModel,    TripSelectorView , $       ) {
+        var resorts, trip, view;
 
         // Let's kick off the application
         router.init();
         MainMenuView.init();
 
         resorts = ResortCollection.available();
-        view = ResortSelectorView.show(resorts);
+        trip = TripModel.empty();
+        view = TripSelectorView.show(trip, resorts);
 
         $("#main").append(view.$el);
 

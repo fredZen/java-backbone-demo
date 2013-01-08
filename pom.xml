@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>BackboneDemo</name>
-    <description>Backbone.js sample for Paris JUG</description>
+    <description>Backbone.js with Java example for Paris JUG</description>
 
     <prerequisites>
         <maven>3.0.4</maven>
@@ -74,7 +74,7 @@
                     <jsSrcDir>${project.basedir}/src/main/webapp/js</jsSrcDir>
                     <jsTestSrcDir>${project.basedir}/src/test/js</jsTestSrcDir>
                     <scriptLoaderPath>lib/require/require-2.1.2-min.js</scriptLoaderPath>
-                    <browserVersion>INTERNET_EXPLORER_7</browserVersion>
+                    <browserVersion>FIREFOX_3_6</browserVersion>
                     <preloadSources>
                         <source>bootstrap</source>
                     </preloadSources>
