@@ -34,15 +34,15 @@
 
     <util:list id="accommodations-djerba">
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              p:typeCode="STD" p:description="Standard room" p:price="100"/>
+              p:typeCode="STD" p:description="Chambre standard" p:price="100"/>
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              p:typeCode="DLX" p:description="Deluxe room" p:price="150"/>
+              p:typeCode="DLX" p:description="Chambre deluxe" p:price="150"/>
     </util:list>
 
     <util:list id="accommodations-avoriaz">
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              p:typeCode="STD" p:description="Standard room" p:price="75"/>
+              p:typeCode="STD" p:description="Chambre standard" p:price="75"/>
         <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
-              p:typeCode="DLX" p:description="Deluxe room" p:price="300"/>
+              p:typeCode="DLX" p:description="Chambre deluxe" p:price="300"/>
     </util:list>
 </beans>

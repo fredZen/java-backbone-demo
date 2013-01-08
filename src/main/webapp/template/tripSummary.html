@@ -1,0 +1,17 @@
+<div class="span4">
+    <h4>Résumé du voyage</h4>
+    <div class="well">
+        <dl class="dl-horizontal">
+            <% if(resort.name) { %>
+            <dt>Séjour</dt>
+            <dd><%= resort.name %><%= resort.price ? '<small class="pull-right">' + resort.price + ' €</strong></small>' : '' %></dd>
+            <% } %>
+            <% if(accommodation.description) { %>
+            <dt>Logement</dt>
+            <dd><%= accommodation.description %><%= accommodation.price ? '<small class="pull-right">' + accommodation.price + ' €</strong></small>' : '' %></dd>
+            <% } %>
+            <dt>Total</dt>
+            <dd><small class="pull-right"><strong><%= (resort.price || 0) + (accommodation.price || 0) %> €</strong></small></dd>
+        </dl>
+    </div>
+</div>

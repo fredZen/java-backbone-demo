@@ -1,16 +1,21 @@
 define(     [ 'backbone'],
     function(  Backbone ) {
-        var TripModel =  Backbone.Model.extend({
+        var
+            TripModel =  Backbone.Model.extend({
                 getResort: function() {
                     return this.get('resort');
                 },
 
                 setResort: function(resort) {
-                    return this.set('resort', resort);
+                    this.set('resort', resort);
                 },
 
                 getAccommodation: function() {
                     return this.get('accommodation');
+                },
+
+                setAccommodation: function(accommodation) {
+                    this.set('accommodation', accommodation);
                 }
             }, {
                 empty: function() {
