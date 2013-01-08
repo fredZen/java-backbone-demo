@@ -6,14 +6,6 @@ define(     [ 'backbone', 'render!resortSelector', './resortPillView'],
                 this._listenToModel();
             },
 
-            setModel: function(resortCollection) {
-                if(this.model) {
-                    this.model.off('reset');
-                }
-                this.model = resortCollection;
-                this._listenToModel();
-            },
-
             _listenToModel: function() {
                 if(this.model) {
                     this.model.on('reset', this.render, this);

@@ -6,14 +6,6 @@ define(     [ 'backbone', 'render!resortDetails'],
                 this._listenToModel();
             },
 
-            setModel: function(tripModel) {
-                if(this.model) {
-                    this.model.off('change');
-                }
-                this.model = tripModel;
-                this._listenToModel();
-            },
-
             _listenToModel: function() {
                 if(this.model) {
                     this.model.on('change', this.render, this);

@@ -1,6 +1,6 @@
-define(     [ 'backbone', 'render!resortPill'],
+define(     [ 'backbone', 'render!accommodationPill'],
     function(  Backbone ,  template      ) {
-        var ResortPillView = Backbone.View.extend({
+        var AccommodationPillView = Backbone.View.extend({
             // Instance
             tagName: "li",
 
@@ -32,12 +32,12 @@ define(     [ 'backbone', 'render!resortPill'],
             }
         }, {
             // Class
-            show: function(resortModel) {
-                var result = new ResortPillView({model: resortModel});
+            show: function(accommodationModel) {
+                var result = new AccommodationPillView({model: accommodationModel});
                 result.render();
                 return result;
             }
         });
 
-        return ResortPillView;
+        return AccommodationPillView;
     });

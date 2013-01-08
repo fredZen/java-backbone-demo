@@ -15,9 +15,9 @@
         <constructor-arg name="resorts">
             <list>
                 <bean class="com.octo.parisjug.backbonedemo.model.Resort"
-                      p:id="DJA" p:name="Djerba" p:country="Tunisie"  p:description="Plage" p:color="rgb(255, 201, 14)" />
+                      p:id="DJA" p:name="Djerba" p:country="Tunisie"  p:description="Plage" p:price="950" p:color="rgb(255, 201, 14)" />
                 <bean class="com.octo.parisjug.backbonedemo.model.Resort"
-                      p:id="AVZ" p:name="Avoriaz" p:country="France" p:description="Montagne" p:color="rgb(153, 217, 234)" />
+                      p:id="AVZ" p:name="Avoriaz" p:country="France" p:description="Montagne" p:price="790" p:color="rgb(153, 217, 234)" />
             </list>
         </constructor-arg>
     </bean>

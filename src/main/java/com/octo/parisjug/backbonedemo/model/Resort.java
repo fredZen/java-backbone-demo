@@ -1,10 +1,13 @@
 package com.octo.parisjug.backbonedemo.model;
 
+import java.math.BigDecimal;
+
 public class Resort {
     private String id;
     private String name;
     private String country;
     private String description;
+    private BigDecimal price;
 
     /*
      * Each resort has a color theme. In this toy example, we'll just store it as a CSS color string.
@@ -50,5 +53,13 @@ public class Resort {
 
     public void setColor(final String color) {
         this.color = color;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(final BigDecimal price) {
+        this.price = price;
     }
 }
