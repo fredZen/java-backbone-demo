@@ -1,5 +1,5 @@
-define(     [ 'backbone'],
-    function(  Backbone ) {
+define(     [ 'backbone', './bookingRequestModel'],
+    function(  Backbone ,    BookingRequestModel ) {
         var
             TripModel =  Backbone.Model.extend({
                 getResort: function() {
@@ -16,6 +16,13 @@ define(     [ 'backbone'],
 
                 setAccommodation: function(accommodation) {
                     this.set('accommodation', accommodation);
+                },
+
+                bookingRequest: function() {
+                    var
+                        resortCode = this.getResort().id,
+                        accommodationCode = this.getAccommodation().getType();
+                    return BookingRequestModel.forResortAndAccommodationCode(resortCode, accommodationCode);
                 }
             }, {
                 empty: function() {
