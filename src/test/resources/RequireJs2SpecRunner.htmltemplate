@@ -18,7 +18,12 @@
                 /*
                 If you need to inject some global configuration, this is the place.
                 It's also a smell that things are not as unit-testable as they could be.
+
+                Here we configure a fake resource location
                 */
+                    'util/resource': {
+                        baseUrl: 'resource'
+                    },
 			}
 		};
 	</script>

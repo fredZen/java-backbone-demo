@@ -3,12 +3,12 @@ package com.octo.parisjug.backbonedemo.model;
 import java.math.BigDecimal;
 
 public class Accommodation {
-    public final String roomType;
+    public final String typeCode;
     public final String description;
     public final BigDecimal price;
 
-    public Accommodation(String roomType, String description, BigDecimal price) {
-        this.roomType = roomType;
+    public Accommodation(String typeCode, String description, BigDecimal price) {
+        this.typeCode = typeCode;
         this.description = description;
         this.price = price;
     }

@@ -16,12 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="Frederic Merizen">
 
-        <style>
-            body {
-                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-            }
-        </style>
-
+        <link type="text/css" href="${css}/backboneDemo.css" rel="stylesheet">
         <link type="text/css" href="${css}/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="${css}/bootstrap-responsive.min.css" rel="stylesheet">
 

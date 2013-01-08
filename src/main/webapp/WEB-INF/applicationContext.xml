@@ -10,23 +10,39 @@
 
     <context:component-scan base-package="com.octo.parisjug.backbonedemo.service" />
 
+    <!-- ResortService and configuration data -->
+    <bean class="com.octo.parisjug.backbonedemo.service.ResortService">
+        <constructor-arg name="resorts">
+            <list>
+                <bean class="com.octo.parisjug.backbonedemo.model.Resort"
+                      c:id="DJA" c:name="Djerba" c:country="Tunisie"  c:description="Plage" c:color="rgb(255, 201, 14)" />
+                <bean class="com.octo.parisjug.backbonedemo.model.Resort"
+                      c:id="AVZ" c:name="Avoriaz" c:country="France" c:description="Montagne" c:color="rgb(153, 217, 234)" />
+            </list>
+        </constructor-arg>
+    </bean>
+
     <!-- AccommodationService and configuration data -->
     <bean class="com.octo.parisjug.backbonedemo.service.AccommodationService">
         <constructor-arg  name="accommodationsByResortCode">
             <map>
-                <entry key="TUI" value-ref="accommodations-tunisie"/>
-                <entry key="ALP" value-ref="accommodations-alpes"/>
+                <entry key="DJA" value-ref="accommodations-djerba"/>
+                <entry key="AVZ" value-ref="accommodations-avoriaz"/>
             </map>
         </constructor-arg>
     </bean>
 
-    <util:list id="accommodations-tunisie">
-        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Standard room" c:price="100" c:roomType="STD"/>
-        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Deluxe room" c:price="150" c:roomType="DLX"/>
+    <util:list id="accommodations-djerba">
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
+              c:typeCode="STD" c:description="Standard room" c:price="100"/>
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
+              c:typeCode="DLX" c:description="Deluxe room" c:price="150"/>
     </util:list>
 
-    <util:list id="accommodations-alpes">
-        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Standard room" c:price="75" c:roomType="STD"/>
-        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation" c:description="Deluxe room" c:price="300" c:roomType="DLX"/>
+    <util:list id="accommodations-avoriaz">
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
+              c:typeCode="STD" c:description="Standard room" c:price="75"/>
+        <bean class="com.octo.parisjug.backbonedemo.model.Accommodation"
+              c:typeCode="DLX" c:description="Deluxe room" c:price="300"/>
     </util:list>
 </beans>

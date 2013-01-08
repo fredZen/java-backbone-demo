@@ -1,20 +1,16 @@
-define(     [ 'backbone', 'render!greeting'],
-    function(  Backbone ,  template        ) {
-        var
-            GreetingView = undefined,
-            singleton = undefined;
-
-        GreetingView = Backbone.View.extend({
+define(     [ 'backbone', 'render!resort'],
+    function(  Backbone ,  template      ) {
+        var ResortView = Backbone.View.extend({
             // Instance
             initialize: function() {
                 this._listenToModel();
             },
 
-            setModel: function(greetingModel) {
+            setModel: function(resortModel) {
                 if(this.model) {
                     this.model.off('change');
                 }
-                this.model = greetingModel;
+                this.model = resortModel;
                 this._listenToModel();
             },
 
@@ -29,13 +25,12 @@ define(     [ 'backbone', 'render!greeting'],
             }
         }, {
             // Class
-            show: function(greetingModel) {
-                singleton.setModel(greetingModel);
-                singleton.render();
+            show: function(resortModel) {
+                var result = new ResortView({model: resortModel});
+                result.render();
+                return result;
             }
         });
 
-        singleton = new GreetingView({el: "#main"});
-
-        return GreetingView;
+        return ResortView;
     });
