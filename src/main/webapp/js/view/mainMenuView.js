@@ -1,12 +1,18 @@
-define(     [ 'jquery', 'backbone', 'render!mainMenu'],
-    function(  $      ,  Backbone ,  template        ) {
+define(     [ 'jquery', 'backbone', 'render!mainMenu', 'router/tripSelectorDriver'],
+    function(  $      ,  Backbone ,  template        ,         TripSelectorDriver ) {
         var
             MainMenuView = Backbone.View.extend({
                 // Instance
                 className: "navbar navbar-fixed-top",
 
                 events: {
+                    "click #homeButton": "restart",
                     "click a": "doNothing"
+                },
+
+                restart: function() {
+                    TripSelectorDriver.startEmpty();
+                    return false;
                 },
 
                 doNothing: function() {

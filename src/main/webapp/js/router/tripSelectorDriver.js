@@ -9,7 +9,7 @@ define(      ['model/resortCollection', 'model/tripModel', 'model/accommodationC
                     view = TripSelectorView.show(trip, resorts, accommodations),
                     options;
 
-                $("#main").append(view.$el);
+                $("#main").html(view.$el);
 
                 if(onResortsReady) {
                     options = {
